@@ -12,82 +12,104 @@ function HeroSection() {
 
   return (
     <section className="relative min-h-screen overflow-hidden" data-testid="hero-section">
-      {/* Full bleed background image with dark vignette on the left only */}
+      {/* Full bleed background image — crystal clear */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/library-bg.jpg"
+          src="/مكتبة سحرية تحت ضوء القمر.png"
           alt="library background"
           className="w-full h-full object-cover object-center"
         />
-        {/* Vignette: heavy dark on left (where text lives), transparent on right (image) */}
+        {/* Very subtle dark overlay only on the RIGHT side where text lives (RTL) */}
         <div
           className="absolute inset-0"
           style={{
             background: isRTL
-              ? 'linear-gradient(to left, rgba(10,5,2,0.10) 0%, rgba(10,5,2,0.55) 45%, rgba(10,5,2,0.93) 75%, rgba(10,5,2,0.97) 100%)'
-              : 'linear-gradient(to right, rgba(10,5,2,0.10) 0%, rgba(10,5,2,0.55) 45%, rgba(10,5,2,0.93) 75%, rgba(10,5,2,0.97) 100%)',
+              ? 'linear-gradient(to right, rgba(5,2,0,0.0) 10%, rgba(5,2,0,0.15) 40%, rgba(5,2,0,0.65) 70%, rgba(5,2,0,0.80) 100%)'
+              : 'linear-gradient(to left, rgba(5,2,0,0.0) 10%, rgba(5,2,0,0.15) 40%, rgba(5,2,0,0.65) 70%, rgba(5,2,0,0.80) 100%)',
           }}
         />
-        {/* Bottom fade so the books section blends smoothly */}
-        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#0a0502] to-transparent" />
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#030610] to-transparent" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col justify-center">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full pt-28 pb-20">
-          {/* Text block – sits on the dark side */}
+      <div className="relative z-10 min-h-screen flex items-center" dir={isRTL ? 'rtl' : 'ltr'}>
+        <div className="max-w-7xl mx-auto px-8 lg:px-16 w-full pt-24 pb-20">
+          {/* Text block on the dark side */}
           <motion.div
-            className={`max-w-xl ${isRTL ? 'text-right mr-auto ml-0' : 'text-left'}`}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
+            className={`max-w-lg ${isRTL ? 'mr-auto' : 'ml-auto'} text-${isRTL ? 'right' : 'left'}`}
+            initial={{ opacity: 0, x: isRTL ? 40 : -40 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
-            {/* Headline */}
-            <h1 className={`font-black leading-tight mb-6 ${isRTL ? 'font-arabic text-5xl sm:text-6xl lg:text-7xl' : 'font-cinematic text-5xl sm:text-6xl lg:text-7xl'}`}
-              style={{ color: '#f0e0c0' }}
+            {/* Tagline */}
+            <motion.p
+              className="font-arabic text-base mb-3 tracking-wide"
+              style={{ color: 'rgba(200,168,75,0.85)' }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
             >
-              <span className="block">
-                {isRTL ? 'حيث تبدأ الحكايات' : 'Where Stories Begin'}
-              </span>
-              <span className="block mt-2" style={{ color: '#c8a84b' }}>
-                {isRTL ? 'رحلتها إلى القراء' : 'Their Journey to Readers'}
-              </span>
-            </h1>
+              {isRTL ? 'كل قصة.. عالم جديد' : 'Every Story.. A New World'}
+            </motion.p>
+
+            {/* Main Headline */}
+            <motion.h1
+              className="font-arabic font-black leading-tight mb-5"
+              style={{ color: '#f0e0c0', fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.2 }}
+            >
+              {isRTL ? (
+                <>
+                  <span style={{ color: '#c8a84b' }}>أُفق</span>
+                  <span> للنشر والتوزيع</span>
+                </>
+              ) : (
+                <>
+                  <span style={{ color: '#c8a84b' }}>Ufuq</span>
+                  <span> Publishing</span>
+                </>
+              )}
+            </motion.h1>
 
             {/* Subtitle */}
-            <p
-              className={`text-lg leading-relaxed mb-10 ${isRTL ? 'font-arabic' : ''}`}
-              style={{ color: 'rgba(240,224,192,0.7)' }}
+            <motion.p
+              className="font-arabic text-base leading-loose mb-10"
+              style={{ color: 'rgba(240,224,192,0.72)' }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.35 }}
             >
               {isRTL
-                ? 'ممر الكتب دار نشر تهدف إلى نشر الإبداع والمعرفة، وإيصال الكتب إلى كل قارئ في كل مكان.'
-                : 'Book Corridor is a publishing house dedicated to spreading creativity and knowledge, delivering books to every reader everywhere.'}
-            </p>
+                ? 'نبدع للنشر المعرفة .. لمعرفة .. ونصل بقصصنا إلى كل مكان'
+                : 'We innovate in publishing knowledge and reach with our stories everywhere.'}
+            </motion.p>
 
-            {/* CTA Buttons */}
-            <div className={`flex flex-wrap gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+            {/* Oval Gold CTA Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
               <Link href="/store">
                 <motion.span
-                  className={`inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-sm cursor-pointer transition-all ${isRTL ? 'font-arabic flex-row-reverse' : ''}`}
-                  style={{ background: '#c8a84b', color: '#1a0f05' }}
-                  whileHover={{ scale: 1.04, y: -2 }}
+                  className="inline-flex items-center gap-3 font-arabic font-bold text-base cursor-pointer"
+                  style={{
+                    background: 'linear-gradient(135deg, #c8a84b 0%, #e8c96a 50%, #c8a84b 100%)',
+                    color: '#1a0f05',
+                    padding: '14px 36px',
+                    borderRadius: '50px',
+                    boxShadow: '0 4px 24px rgba(200,168,75,0.35)',
+                  }}
+                  whileHover={{ scale: 1.05, y: -2, boxShadow: '0 8px 32px rgba(200,168,75,0.5)' }}
                   whileTap={{ scale: 0.97 }}
                 >
-                  {isRTL ? 'تصفح الإصدارات' : 'Browse Releases'}
+                  {isRTL ? '← تصفح كتبنا' : 'Browse Books →'}
                 </motion.span>
               </Link>
-
-              <Link href="/auth">
-                <motion.span
-                  className={`inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-sm cursor-pointer border transition-all ${isRTL ? 'font-arabic flex-row-reverse' : ''}`}
-                  style={{ border: '1px solid rgba(200,168,75,0.5)', color: '#c8a84b', background: 'rgba(200,168,75,0.08)' }}
-                  whileHover={{ scale: 1.04, y: -2, background: 'rgba(200,168,75,0.18)' }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  {isRTL ? 'انشر كتابك معنا' : 'Publish With Us'}
-                </motion.span>
-              </Link>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
@@ -113,7 +135,7 @@ function LatestBooksSection() {
   const placeholders = Array.from({ length: 5 });
 
   return (
-    <section className="py-16 relative" style={{ background: 'rgba(10,5,2,0.97)' }}>
+    <section className="py-16 relative" style={{ background: 'rgba(4,8,22,0.97)' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
         {/* Row header */}
@@ -232,7 +254,7 @@ function AuthorsSection() {
   const authors = (authorsData ?? []).slice(0, 6);
 
   return (
-    <section className="py-16 relative" style={{ background: 'rgba(12,7,3,0.98)' }}>
+    <section className="py-16 relative" style={{ background: 'rgba(3,6,18,0.98)' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className={`flex items-center justify-between mb-10 ${isRTL ? 'flex-row-reverse' : ''}`}>
@@ -307,11 +329,11 @@ function CTASection() {
   const { isRTL } = useLanguage();
   return (
     <section className="py-24 relative overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #1a0d04 0%, #2d1a08 50%, #1a0d04 100%)' }}>
-      {/* Glow */}
+      style={{ background: 'linear-gradient(135deg, #060d28 0%, #0d1a40 50%, #060d28 100%)' }}>
+      {/* Blue + Gold Glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[600px] h-[300px] rounded-full blur-[120px]"
-          style={{ background: 'rgba(200,168,75,0.08)' }} />
+        <div className="w-[700px] h-[350px] rounded-full blur-[140px]"
+          style={{ background: 'radial-gradient(ellipse, rgba(59,100,220,0.18) 0%, rgba(200,168,75,0.08) 60%, transparent 100%)' }} />
       </div>
 
       <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
@@ -323,7 +345,7 @@ function CTASection() {
           <div className="text-3xl mb-6" style={{ color: '#c8a84b' }}>✦</div>
           <h2 className={`text-3xl md:text-5xl font-bold mb-6 leading-tight ${isRTL ? 'font-arabic' : 'font-cinematic'}`}
             style={{ color: '#f0e0c0' }}>
-            {isRTL ? 'انشر كتابك مع ممر الكتب' : 'Publish Your Book With Us'}
+            {isRTL ? 'انشر كتابك مع أفق للنشر والتوزيع' : 'Publish Your Book With Ufuq'}
           </h2>
           <p className={`text-lg mb-10 ${isRTL ? 'font-arabic' : ''}`}
             style={{ color: 'rgba(240,224,192,0.6)' }}>
@@ -364,12 +386,12 @@ export function Homepage() {
   const { isRTL } = useLanguage();
 
   return (
-    <div className="min-h-screen" style={{ background: '#0a0502' }}>
+    <div className="min-h-screen" style={{ background: 'rgba(3,6,18,0.97)' }}>
       <SEO
-        title={isRTL ? 'ممر الكتب - دار نشر' : 'Book Corridor — Publishing House'}
+        title={isRTL ? 'أفق للنشر والتوزيع' : 'Ufuq — Publishing House'}
         description={isRTL
-          ? 'ممر الكتب دار نشر تهدف إلى نشر الإبداع والمعرفة، وإيصال الكتب إلى كل قارئ في كل مكان.'
-          : 'Book Corridor Publishing House — Spreading creativity and knowledge to every reader.'}
+          ? 'دار أفق للنشر والتوزيع — نبدع للنشر ونصل بقصصنا إلى كل مكان.'
+          : 'Ufuq Publishing House — Spreading creativity and knowledge to every reader.'}
         type="website"
       />
       <HeroSection />

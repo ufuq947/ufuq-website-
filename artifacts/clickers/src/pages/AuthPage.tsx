@@ -79,12 +79,15 @@ export function AuthPage() {
         <div className="text-center mb-12">
           <Link href="/">
             <div className="inline-flex items-center gap-3 cursor-pointer group">
-              <div className="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center shadow-xl shadow-primary/20 text-2xl">
-                🚪
-              </div>
+              <img
+                src="/٢٠٢٦٠٢٢٦_٢٢٠١٢٦.jpg.jpeg"
+                alt="أفق للنشر والتوزيع"
+                className="w-14 h-14 rounded-2xl object-contain shadow-xl group-hover:scale-105 transition-transform"
+                style={{ border: '1px solid rgba(200,168,75,0.3)' }}
+              />
               <div className={isRTL ? 'text-right' : 'text-left'}>
-                <p className="font-arabic font-bold text-xl text-primary">ممر الكتب</p>
-                <p className="text-xs uppercase tracking-[0.25em] font-cinematic text-accent/70">Dar Nashr</p>
+                <p className="font-arabic font-bold text-xl text-primary">أفق للنشر والتوزيع</p>
+                <p className="text-xs uppercase tracking-[0.25em] font-cinematic text-accent/70">Ufuq Publishing</p>
               </div>
             </div>
           </Link>

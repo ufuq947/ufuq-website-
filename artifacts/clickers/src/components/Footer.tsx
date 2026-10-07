@@ -30,15 +30,15 @@ export function Footer() {
     <footer
       className="relative mt-24 text-primary"
       style={{
-        background: 'linear-gradient(180deg, #1f1107 0%, #120904 100%)',
-        borderTop: '1px solid rgba(200, 168, 75, 0.25)',
+        background: 'linear-gradient(180deg, rgba(4,8,24,0.98) 0%, rgba(2,4,14,1) 100%)',
+        borderTop: '1px solid rgba(200, 168, 75, 0.2)',
       }}
       dir={isRTL ? 'rtl' : 'ltr'}
     >
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.05]"
+        className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse 80% 60% at 50% 100%, rgba(200,168,75,0.2) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(59,100,220,0.08) 0%, transparent 70%)',
         }}
       />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -47,19 +47,19 @@ export function Footer() {
           <div className="lg:col-span-2 flex flex-col justify-between">
             <div>
               <Link href="/">
-                <div className="flex items-center gap-4 mb-6 cursor-pointer w-fit group">
-                  <div 
-                    className="w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center text-2xl md:text-3xl shadow-lg group-hover:scale-105 transition-transform duration-300"
-                    style={{ background: 'rgba(200, 168, 75, 0.15)', border: '1px solid rgba(200, 168, 75, 0.35)', color: '#c8a84b' }}
-                  >
-                    🚪
-                  </div>
+                <div className="flex items-center gap-3 mb-6 cursor-pointer w-fit group">
+                  <img
+                    src="/٢٠٢٦٠٢٢٦_٢٢٠١٢٦.jpg.jpeg"
+                    alt="أفق للنشر والتوزيع"
+                    className="w-14 h-14 rounded-xl object-contain group-hover:scale-105 transition-transform duration-300"
+                    style={{ border: '1px solid rgba(200, 168, 75, 0.25)' }}
+                  />
                   <div className="flex flex-col gap-1">
-                    <span className="font-arabic font-black text-2xl md:text-3xl leading-none" style={{ color: '#f0e0c0' }}>
-                      ممر الكتب
+                    <span className="font-arabic font-black text-2xl leading-none" style={{ color: '#f0e0c0' }}>
+                      أفق
                     </span>
-                    <span className="text-[11px] uppercase tracking-[0.25em] font-cinematic font-bold" style={{ color: '#c8a84b' }}>
-                      Dar Nashr
+                    <span className="text-[11px] uppercase tracking-[0.2em] font-cinematic font-bold" style={{ color: '#c8a84b' }}>
+                      للنشر والتوزيع
                     </span>
                   </div>
                 </div>
@@ -155,8 +155,8 @@ export function Footer() {
                   placeholder={t.footer.emailPlaceholder}
                   className="w-full rounded-2xl px-5 py-4 text-sm font-medium focus:outline-none transition-all duration-300"
                   style={{
-                    background: 'rgba(10, 5, 2, 0.6)',
-                    border: '1px solid rgba(200, 168, 75, 0.3)',
+                   background: 'rgba(6, 10, 28, 0.7)',
+                    border: '1px solid rgba(200, 168, 75, 0.25)',
                     color: '#f0e0c0',
                   }}
                   data-testid="newsletter-email"

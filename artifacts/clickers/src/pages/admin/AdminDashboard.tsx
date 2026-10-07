@@ -35,11 +35,11 @@ function useAdminCounts() {
 const AdminTooltip = ({ active, payload, label }: any) => {
   if (!active || !payload?.length) return null;
   return (
-    <div className="admin-chart-tooltip px-3 py-2 text-xs font-semibold shadow-xl">
+    <div className="admin-chart-tooltip px-3 py-2 text-xs font-semibold shadow-xl font-arabic">
       <p className="text-slate-400 mb-1">{label}</p>
       {payload.map((p: any) => (
         <p key={p.dataKey} style={{ color: p.color }}>
-          {p.name}: {p.dataKey === 'revenue' ? `${p.value.toLocaleString()} EGP` : p.value}
+          {p.name}: {p.dataKey === 'revenue' ? `${p.value.toLocaleString()} ج.م` : p.value}
         </p>
       ))}
     </div>
@@ -61,26 +61,26 @@ export function AdminDashboard() {
 
   const stats = [
     {
-      label: 'Total Revenue',
-      value: `${(analytics?.totalRevenue ?? 0).toLocaleString()} EGP`,
+      label: 'إجمالي الإيرادات',
+      value: `${(analytics?.totalRevenue ?? 0).toLocaleString()} ج.م`,
       icon: TrendingUp,
       trend: undefined,
       color: 'violet' as const,
     },
     {
-      label: 'Total Orders',
+      label: 'إجمالي الطلبات',
       value: analytics?.totalOrders ?? 0,
       icon: ShoppingBag,
       color: 'sky' as const,
     },
     {
-      label: 'Users',
+      label: 'المستخدمين',
       value: analytics?.totalUsers ?? 0,
       icon: Users,
       color: 'emerald' as const,
     },
     {
-      label: 'Pending Orders',
+      label: 'طلبات قيد الانتظار',
       value: analytics?.pendingOrders ?? 0,
       icon: Package,
       color: 'amber' as const,
@@ -90,8 +90,8 @@ export function AdminDashboard() {
   return (
     <AdminLayout>
       <AdminPageHeader
-        title="Dashboard"
-        subtitle="Welcome back. Here's what's happening today."
+        title="الرئيسية"
+        subtitle="أهلاً بك مجدداً. إليك ملخص نشاط دار أفق للنشر والتوزيع اليوم."
       />
 
       {/* Stat Cards */}
@@ -119,14 +119,14 @@ export function AdminDashboard() {
       {/* Extra info row */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
         {[
-          { label: 'Total Books', value: counts?.totalBooks ?? '—', color: '#a78bfa' },
-          { label: 'Total Authors', value: counts?.totalAuthors ?? '—', color: '#60a5fa' },
-          { label: 'Delivered', value: (analytics?.totalOrders ?? 0) - (analytics?.pendingOrders ?? 0), color: '#34d399' },
-          { label: 'Cancelled', value: 0, color: '#f87171' },
+          { label: 'إجمالي الكتب', value: counts?.totalBooks ?? '—', color: '#a78bfa' },
+          { label: 'إجمالي المؤلفين', value: counts?.totalAuthors ?? '—', color: '#60a5fa' },
+          { label: 'تم التسليم', value: (analytics?.totalOrders ?? 0) - (analytics?.pendingOrders ?? 0), color: '#34d399' },
+          { label: 'ملغاة', value: 0, color: '#f87171' },
         ].map((item, i) => (
           <motion.div
             key={item.label}
-            className="admin-card border border-white/5 rounded-xl px-5 py-4 flex items-center gap-4"
+            className="admin-card border border-white/5 rounded-xl px-5 py-4 flex items-center gap-4 font-arabic"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 + i * 0.06 }}
@@ -134,14 +134,14 @@ export function AdminDashboard() {
             <div className="w-2 h-10 rounded-full flex-shrink-0" style={{ background: item.color }} />
             <div>
               <p className="text-white font-bold text-xl tabular-nums">{item.value}</p>
-              <p className="text-slate-500 text-xs uppercase tracking-wider">{item.label}</p>
+              <p className="text-slate-400 text-xs font-semibold">{item.label}</p>
             </div>
           </motion.div>
         ))}
       </div>
 
       {/* Charts row */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8 font-arabic">
         {/* Revenue Area Chart */}
         <motion.div
           className="lg:col-span-2 admin-card border border-white/5 rounded-2xl p-6"
@@ -151,8 +151,8 @@ export function AdminDashboard() {
         >
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h2 className="text-base font-bold text-white">Revenue Overview</h2>
-              <p className="text-slate-500 text-xs mt-0.5">Last 14 days</p>
+              <h2 className="text-base font-bold text-white">نظرة عامة على الإيرادات</h2>
+              <p className="text-slate-500 text-xs mt-0.5">آخر 14 يوماً</p>
             </div>
             <BarChart3 className="text-violet-400" size={18} />
           </div>
@@ -176,7 +176,7 @@ export function AdminDashboard() {
                 <Area
                   type="monotone"
                   dataKey="revenue"
-                  name="Revenue"
+                  name="الإيرادات"
                   stroke="#7c3aed"
                   strokeWidth={2.5}
                   fill="url(#revenueGradAdmin)"
@@ -188,8 +188,8 @@ export function AdminDashboard() {
           ) : (
             <div className="h-[210px] flex flex-col items-center justify-center gap-3">
               <BarChart3 size={32} className="text-slate-700" />
-              <p className="text-slate-600 text-sm font-medium">No sales data yet</p>
-              <p className="text-slate-700 text-xs">Revenue will appear here once orders are placed</p>
+              <p className="text-slate-500 text-sm font-medium">لا توجد بيانات مبيعات حالياً</p>
+              <p className="text-slate-600 text-xs">ستظهر الإيرادات هنا بمجرد تسجيل الطلبات.</p>
             </div>
           )}
         </motion.div>
@@ -202,10 +202,10 @@ export function AdminDashboard() {
           transition={{ delay: 0.22 }}
         >
           <div className="flex items-center justify-between mb-5">
-            <h2 className="text-base font-bold text-white">Top Books</h2>
+            <h2 className="text-base font-bold text-white">الأكثر مبيعاً</h2>
             <Link href="/admin/analytics">
-              <span className="text-violet-400 text-xs font-semibold cursor-pointer hover:text-violet-300 transition-colors uppercase tracking-wider">
-                See All
+              <span className="text-violet-400 text-xs font-semibold cursor-pointer hover:text-violet-300 transition-colors">
+                عرض الكل
               </span>
             </Link>
           </div>
@@ -214,7 +214,7 @@ export function AdminDashboard() {
               <motion.div
                 key={book.id}
                 className="flex items-center gap-3"
-                initial={{ opacity: 0, x: 10 }}
+                initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 + i * 0.06 }}
               >
@@ -234,14 +234,14 @@ export function AdminDashboard() {
                 )}
                 <div className="flex-1 min-w-0">
                   <p className="text-slate-200 font-semibold text-sm line-clamp-1">{book.title_ar || book.title_en}</p>
-                  <p className="text-violet-400 font-bold text-xs mt-0.5">{book.total_sold ?? 0} sold</p>
+                  <p className="text-violet-400 font-bold text-xs mt-0.5">{book.total_sold ?? 0} مبيعات</p>
                 </div>
               </motion.div>
             ))}
             {(analytics?.topBooks ?? []).length === 0 && (
               <div className="py-8 flex flex-col items-center gap-2">
                 <BookOpen size={28} className="text-slate-700" />
-                <p className="text-slate-600 text-sm">No sales data yet</p>
+                <p className="text-slate-600 text-sm">لا توجد مبيعات مسجلة حتى الآن</p>
               </div>
             )}
           </div>
@@ -250,16 +250,16 @@ export function AdminDashboard() {
 
       {/* Quick Actions */}
       <motion.div
-        className="grid grid-cols-2 md:grid-cols-4 gap-4"
+        className="grid grid-cols-2 md:grid-cols-4 gap-4 font-arabic"
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.35 }}
       >
         {[
-          { href: '/admin/books',     label: 'Add Book',       icon: PlusCircle,  color: '#7c3aed' },
-          { href: '/admin/authors',   label: 'Authors',        icon: Users,       color: '#4f46e5' },
-          { href: '/admin/orders',    label: 'Orders',         icon: Eye,         color: '#0ea5e9' },
-          { href: '/admin/exports',   label: 'Export Data',    icon: FileDown,    color: '#10b981' },
+          { href: '/admin/books',     label: 'إضافة كتاب',       icon: PlusCircle,  color: '#7c3aed' },
+          { href: '/admin/authors',   label: 'المؤلفون',        icon: Users,       color: '#4f46e5' },
+          { href: '/admin/orders',    label: 'الطلبات',         icon: Eye,         color: '#0ea5e9' },
+          { href: '/admin/exports',   label: 'تصدير البيانات',    icon: FileDown,    color: '#10b981' },
         ].map((action) => {
           const Icon = action.icon;
           return (
@@ -274,7 +274,7 @@ export function AdminDashboard() {
                 >
                   <Icon size={20} />
                 </div>
-                <span className="text-slate-400 group-hover:text-slate-200 font-semibold text-xs uppercase tracking-wider text-center transition-colors">
+                <span className="text-slate-400 group-hover:text-slate-200 font-semibold text-xs text-center transition-colors">
                   {action.label}
                 </span>
               </motion.div>

@@ -23,7 +23,8 @@ export function CartDrawer() {
 
           {/* Drawer */}
           <motion.div
-            className={`fixed top-0 ${isRTL ? 'left-0' : 'right-0'} h-full w-full max-w-md bg-transparent shadow-2xl z-50 flex flex-col`}
+            className={`fixed top-0 ${isRTL ? 'left-0' : 'right-0'} h-full w-full max-w-md shadow-2xl z-50 flex flex-col`}
+            style={{ background: 'linear-gradient(180deg, rgba(5,10,28,0.98) 0%, rgba(3,6,18,0.99) 100%)', backdropFilter: 'blur(20px)', borderLeft: isRTL ? 'none' : '1px solid rgba(200,168,75,0.12)', borderRight: isRTL ? '1px solid rgba(200,168,75,0.12)' : 'none' }}
             initial={{ x: isRTL ? '-100%' : '100%' }}
             animate={{ x: 0 }}
             exit={{ x: isRTL ? '-100%' : '100%' }}

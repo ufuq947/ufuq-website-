@@ -3,7 +3,7 @@ import { Link, useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   LayoutDashboard, BookOpen, Users, Globe, PenTool,
-  ShoppingBag, BarChart3, Download, LogOut, ChevronRight,
+  ShoppingBag, BarChart3, Download, LogOut, ChevronLeft,
   Play, Bell, Menu, X, ExternalLink,
 } from 'lucide-react';
 import { useAuth } from '@/contexts/useAuth';
@@ -15,15 +15,15 @@ interface OrderToast extends NewOrderPayload { toastId: string; }
 let toastCounter = 0;
 
 const navItems = [
-  { href: '/admin',           label: 'Dashboard',       icon: LayoutDashboard },
-  { href: '/admin/books',     label: 'Books',           icon: BookOpen },
-  { href: '/admin/authors',   label: 'Authors',         icon: Users },
-  { href: '/admin/worlds',    label: 'Worlds',          icon: Globe },
-  { href: '/admin/blog',      label: 'Blog',            icon: PenTool },
-  { href: '/admin/orders',    label: 'Orders',          icon: ShoppingBag },
-  { href: '/admin/analytics', label: 'Analytics',       icon: BarChart3 },
-  { href: '/admin/media',     label: 'Media Hub',       icon: Play },
-  { href: '/admin/exports',   label: 'Export Reports',  icon: Download },
+  { href: '/admin',           label: 'الرئيسية',       icon: LayoutDashboard },
+  { href: '/admin/books',     label: 'الكتب',           icon: BookOpen },
+  { href: '/admin/authors',   label: 'المؤلفون',         icon: Users },
+  { href: '/admin/worlds',    label: 'العوالم الأدبية',  icon: Globe },
+  { href: '/admin/blog',      label: 'المقالات والأخبار',  icon: PenTool },
+  { href: '/admin/orders',    label: 'الطلبات',          icon: ShoppingBag },
+  { href: '/admin/analytics', label: 'التحليلات',       icon: BarChart3 },
+  { href: '/admin/media',     label: 'مركز الوسائط',     icon: Play },
+  { href: '/admin/exports',   label: 'تصدير التقارير',  icon: Download },
 ];
 
 function AdminSidebar({
@@ -59,13 +59,13 @@ function AdminSidebar({
             exit={{ opacity: 0 }}
             className="flex-1 min-w-0"
           >
-            <p className="text-white font-bold text-sm font-arabic truncate">ممر الكتب</p>
-            <p className="text-slate-400 text-[10px] uppercase tracking-widest">Admin Panel</p>
+            <p className="text-white font-bold text-sm font-arabic truncate">أفق للنشر والتوزيع</p>
+            <p className="text-slate-400 text-[10px] uppercase tracking-widest font-arabic">لوحة التحكم</p>
           </motion.div>
         )}
         <button
           onClick={onToggle}
-          className="ml-auto p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-all flex-shrink-0"
+          className="mr-auto p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-all flex-shrink-0"
         >
           {collapsed ? <Menu size={16} /> : <X size={16} />}
         </button>
@@ -76,10 +76,10 @@ function AdminSidebar({
         <div className="px-3 pt-3">
           <button
             onClick={onBellClick}
-            className="w-full flex items-center gap-2 px-3 py-2.5 rounded-xl admin-alert-btn font-bold text-xs animate-pulse hover:animate-none transition-all"
+            className="w-full flex items-center gap-2 px-3 py-2.5 rounded-xl admin-alert-btn font-bold text-xs animate-pulse hover:animate-none transition-all font-arabic"
           >
             <Bell size={14} />
-            <span className="flex-1 text-left">{newOrderCount} New Order{newOrderCount > 1 ? 's' : ''}!</span>
+            <span className="flex-1 text-right">{newOrderCount} طلب جديد!</span>
             <span className="w-5 h-5 bg-white/20 rounded-full text-[10px] font-black flex items-center justify-center">
               {newOrderCount > 9 ? '9+' : newOrderCount}
             </span>
@@ -106,12 +106,12 @@ function AdminSidebar({
           return (
             <Link key={item.href} href={item.href}>
               <motion.div
-                className={`flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-all duration-150 group relative ${
+                className={`flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-all duration-150 group relative font-arabic ${
                   isActive
                     ? 'admin-nav-active text-white'
                     : 'text-slate-400 hover:text-white hover:bg-white/5'
                 }`}
-                whileHover={{ x: 2 }}
+                whileHover={{ x: -2 }}
                 whileTap={{ scale: 0.97 }}
                 title={collapsed ? item.label : undefined}
               >
@@ -124,10 +124,10 @@ function AdminSidebar({
                     {newOrderCount > 9 ? '9+' : newOrderCount}
                   </span>
                 )}
-                {isActive && !collapsed && <ChevronRight size={12} className="text-white/40 flex-shrink-0" />}
+                {isActive && !collapsed && <ChevronLeft size={12} className="text-white/40 flex-shrink-0" />}
                 {/* Tooltip when collapsed */}
                 {collapsed && (
-                  <div className="admin-tooltip absolute left-full ml-3 px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity z-50">
+                  <div className="admin-tooltip absolute right-full mr-3 px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity z-50 font-arabic">
                     {item.label}
                   </div>
                 )}
@@ -138,7 +138,7 @@ function AdminSidebar({
       </nav>
 
       {/* User + Sign Out */}
-      <div className="p-3 border-t border-white/5">
+      <div className="p-3 border-t border-white/5 font-arabic">
         {profile && !collapsed && (
           <div className="flex items-center gap-3 px-3 py-2 mb-1">
             <div className="w-8 h-8 flex-shrink-0 admin-avatar rounded-lg flex items-center justify-center text-sm font-bold">
@@ -146,17 +146,17 @@ function AdminSidebar({
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-white text-xs font-semibold truncate">{profile.full_name || profile.email}</p>
-              <p className="text-slate-500 text-[10px] capitalize">{profile.role}</p>
+              <p className="text-slate-500 text-[10px] capitalize">{profile.role === 'admin' ? 'مسؤول' : 'مستخدم'}</p>
             </div>
           </div>
         )}
         <button
           onClick={signOut}
-          title={collapsed ? 'Sign Out' : undefined}
+          title={collapsed ? 'تسجيل الخروج' : undefined}
           className="w-full flex items-center gap-3 px-3 py-2.5 text-slate-500 hover:text-red-400 hover:bg-red-500/10 rounded-xl transition-all duration-150 font-semibold text-sm"
         >
           <LogOut size={15} className="flex-shrink-0" />
-          {!collapsed && <span>Sign Out</span>}
+          {!collapsed && <span>تسجيل الخروج</span>}
         </button>
       </div>
     </motion.aside>
@@ -183,12 +183,10 @@ export function AdminLayout({ children }: { children: ReactNode }) {
     setToasts((prev) => prev.filter((t) => t.toastId !== toastId));
   }, []);
 
-  const clearAll = useCallback(() => setToasts([]), []);
-
   if (isLoading) {
     return (
       <div className="min-h-screen admin-bg flex items-center justify-center">
-        <div className="w-10 h-10 border-4 border-slate-700 border-t-violet-500 rounded-full animate-spin" />
+        <div className="w-10 h-10 border-4 border-slate-700 border-t-amber-500 rounded-full animate-spin" />
       </div>
     );
   }
@@ -199,7 +197,7 @@ export function AdminLayout({ children }: { children: ReactNode }) {
   }
 
   return (
-    <div className="flex min-h-screen admin-bg">
+    <div className="flex min-h-screen admin-bg" dir="rtl">
       <AdminSidebar
         newOrderCount={toasts.length}
         onBellClick={() => navigate('/admin/orders')}
@@ -208,21 +206,21 @@ export function AdminLayout({ children }: { children: ReactNode }) {
       />
       <main className="flex-1 overflow-auto min-w-0 flex flex-col">
         {/* Top Navbar */}
-        <header className="px-6 py-4 border-b border-white/10 bg-slate-900/80 backdrop-blur-xl flex items-center justify-between gap-4 sticky top-0 z-30 shadow-lg">
+        <header className="px-6 py-4 border-b border-white/10 bg-slate-900/80 backdrop-blur-xl flex items-center justify-between gap-4 sticky top-0 z-30 shadow-lg font-arabic">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-base">
               🚪
             </div>
             <div>
-              <h2 className="text-white font-bold text-sm font-arabic leading-tight">لوحة إدارة ممر الكتب</h2>
-              <p className="text-slate-400 text-[10px] uppercase tracking-wider">Control Center</p>
+              <h2 className="text-white font-bold text-sm leading-tight">لوحة إدارة أفق للنشر والتوزيع</h2>
+              <p className="text-slate-400 text-[10px] uppercase tracking-wider font-mono">مركز التحكم</p>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
             <Link href="/">
               <motion.span
-                className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 transition-all text-xs font-bold cursor-pointer font-arabic"
+                className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 transition-all text-xs font-bold cursor-pointer"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.97 }}
               >
@@ -234,7 +232,7 @@ export function AdminLayout({ children }: { children: ReactNode }) {
             <button
               onClick={() => navigate('/admin/orders')}
               className="relative p-2 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 transition-all"
-              title="Orders Alerts"
+              title="تنبيهات الطلبات"
             >
               <Bell size={16} />
               {toasts.length > 0 && (
@@ -248,14 +246,14 @@ export function AdminLayout({ children }: { children: ReactNode }) {
 
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-lg bg-violet-600/30 border border-violet-500/40 text-violet-300 font-bold flex items-center justify-center text-xs shadow-inner">
-                {(profile?.full_name || profile?.email || 'A')[0].toUpperCase()}
+                {(profile?.full_name || profile?.email || 'أ')[0].toUpperCase()}
               </div>
-              <div className="hidden sm:flex flex-col text-left">
+              <div className="hidden sm:flex flex-col text-right">
                 <span className="text-white text-xs font-semibold truncate max-w-[130px]">
                   {profile?.full_name || profile?.email}
                 </span>
                 <span className="text-slate-500 text-[9px] uppercase tracking-widest font-mono">
-                  {profile?.role || 'Admin'}
+                  {profile?.role === 'admin' ? 'مسؤول' : 'مستخدم'}
                 </span>
               </div>
             </div>
@@ -264,22 +262,22 @@ export function AdminLayout({ children }: { children: ReactNode }) {
 
         {/* Permission banner */}
         {typeof Notification !== 'undefined' && Notification.permission === 'default' && (
-          <div className="admin-banner border-b px-6 py-3 flex items-center justify-between gap-4">
+          <div className="admin-banner border-b px-6 py-3 flex items-center justify-between gap-4 font-arabic">
             <div className="flex items-center gap-3">
               <Bell size={15} className="text-violet-400 flex-shrink-0" />
               <p className="text-sm font-medium text-slate-300">
-                Enable browser notifications to receive order alerts even when you're on another tab.
+                قم بتفعيل إشعارات المتصفح لتلقي تنبيهات الطلبات الجديدة فور حدوثها.
               </p>
             </div>
             <button
               onClick={requestPermission}
-              className="px-4 py-1.5 admin-btn-primary font-semibold text-xs uppercase tracking-wide rounded-lg flex-shrink-0"
+              className="px-4 py-1.5 admin-btn-primary font-semibold text-xs rounded-lg flex-shrink-0"
             >
-              Enable
+              تفعيل التنبيهات
             </button>
           </div>
         )}
-        <div className="p-6 lg:p-8 flex-1">{children}</div>
+        <div className="p-6 lg:p-8 flex-1 font-arabic">{children}</div>
       </main>
 
       <OrderNotificationToasts orders={toasts} onDismiss={dismissToast} />
@@ -299,7 +297,7 @@ export function AdminPageHeader({
   action?: ReactNode;
 }) {
   return (
-    <div className="flex items-start justify-between mb-8 gap-4 flex-wrap">
+    <div className="flex items-start justify-between mb-8 gap-4 flex-wrap font-arabic">
       <div>
         <h1 className="text-2xl font-bold text-white mb-0.5">{title}</h1>
         {subtitle && <p className="text-slate-400 text-sm">{subtitle}</p>}
@@ -330,7 +328,7 @@ export function StatCard({
 
   return (
     <motion.div
-      className={`admin-card rounded-2xl p-6 border bg-gradient-to-br ${colorMap[color]}`}
+      className={`admin-card rounded-2xl p-6 border bg-gradient-to-br ${colorMap[color]} font-arabic`}
       whileHover={{ y: -3, scale: 1.01 }}
       transition={{ duration: 0.18 }}
     >
@@ -349,7 +347,7 @@ export function StatCard({
         )}
       </div>
       <p className="text-3xl font-bold text-white mb-1 tabular-nums">{value}</p>
-      <p className="text-slate-400 font-medium text-xs uppercase tracking-widest">{label}</p>
+      <p className="text-slate-400 font-medium text-xs tracking-wider">{label}</p>
     </motion.div>
   );
 }

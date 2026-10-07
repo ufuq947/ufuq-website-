@@ -7,6 +7,7 @@
     "lib/*"
   ],
   "scripts": {
+    "dev": "cd artifacts/clickers && npm run dev",
     "install-all": "npm install",
     "build": "npm run build:api && npm run build:client",
     "build:api": "cd artifacts/api-server && npm run build",

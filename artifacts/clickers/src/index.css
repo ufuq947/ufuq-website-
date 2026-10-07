@@ -70,59 +70,59 @@
 }
 
 :root {
-  --button-outline: rgba(212, 175, 55, 0.15);
-  --badge-outline: rgba(212, 175, 55, 0.2);
+  --button-outline: rgba(200, 168, 75, 0.15);
+  --badge-outline: rgba(200, 168, 75, 0.2);
   --opaque-button-border-intensity: 9;
-  --elevate-1: rgba(212, 175, 55, 0.04);
-  --elevate-2: rgba(212, 175, 55, 0.08);
+  --elevate-1: rgba(200, 168, 75, 0.04);
+  --elevate-2: rgba(200, 168, 75, 0.08);
 
-  /* Deep rich brown / wood tones */
-  --background: 25 30% 10%;
-  --foreground: 40 40% 90%; /* Warm parchment */
+  /* ── UFUQ BLUE THEME: Deep midnight navy + gold accents ── */
+  --background: 225 35% 6%;       /* Deep navy-black */
+  --foreground: 45 30% 92%;       /* Warm off-white parchment */
 
-  --border: 25 20% 20%;
-  --input: 25 20% 18%;
-  --ring: 40 85% 55%; /* Glowing lamp gold */
+  --border: 220 25% 18%;
+  --input: 222 28% 14%;
+  --ring: 43 80% 52%;             /* Glowing gold */
 
-  --card: 25 35% 8%; /* Darker wood for cards */
-  --card-foreground: 40 40% 90%;
-  --card-border: 40 40% 20%;
+  --card: 222 38% 8%;             /* Deep navy card */
+  --card-foreground: 45 30% 92%;
+  --card-border: 220 30% 18%;
 
-  --sidebar: 25 35% 7%;
-  --sidebar-foreground: 40 40% 90%;
-  --sidebar-border: 25 30% 15%;
-  --sidebar-primary: 40 85% 55%;
-  --sidebar-primary-foreground: 25 30% 10%;
-  --sidebar-accent: 25 40% 15%;
-  --sidebar-accent-foreground: 40 85% 55%;
-  --sidebar-ring: 40 85% 55%;
+  --sidebar: 225 40% 6%;
+  --sidebar-foreground: 45 30% 92%;
+  --sidebar-border: 220 30% 12%;
+  --sidebar-primary: 43 80% 52%;
+  --sidebar-primary-foreground: 225 40% 8%;
+  --sidebar-accent: 222 35% 14%;
+  --sidebar-accent-foreground: 43 80% 52%;
+  --sidebar-ring: 43 80% 52%;
 
-  --popover: 25 35% 8%;
-  --popover-foreground: 40 40% 90%;
-  --popover-border: 40 40% 20%;
+  --popover: 222 38% 8%;
+  --popover-foreground: 45 30% 92%;
+  --popover-border: 220 28% 18%;
 
-  --primary: 40 85% 55%; /* Golden light */
-  --primary-foreground: 25 40% 10%; /* Dark text on gold */
+  --primary: 43 80% 52%;          /* Cinematic gold */
+  --primary-foreground: 222 40% 8%;
 
-  --secondary: 25 40% 18%; /* Warm dark wood */
-  --secondary-foreground: 40 85% 55%; /* Gold text */
+  --secondary: 222 35% 14%;       /* Deep blue-navy */
+  --secondary-foreground: 43 80% 52%;
 
-  --muted: 25 20% 15%;
-  --muted-foreground: 40 20% 60%;
+  --muted: 222 25% 12%;
+  --muted-foreground: 220 15% 55%;
 
-  --accent: 25 40% 18%;
-  --accent-foreground: 40 85% 55%;
+  --accent: 222 35% 14%;
+  --accent-foreground: 43 80% 52%;
 
-  --destructive: 0 84% 45%;
+  --destructive: 0 72% 50%;
   --destructive-foreground: 0 0% 98%;
 
   --radius: 0.75rem;
 
-  --chart-1: 40 85% 55%; /* Gold */
-  --chart-2: 15 60% 40%; /* Rust/Leather */
-  --chart-3: 25 40% 25%; /* Deep wood */
-  --chart-4: 35 70% 50%; /* Amber */
-  --chart-5: 20 50% 30%; /* Mahogany */
+  --chart-1: 43 80% 52%;          /* Gold */
+  --chart-2: 215 65% 55%;         /* Blue */
+  --chart-3: 240 50% 40%;         /* Indigo */
+  --chart-4: 200 70% 50%;         /* Cyan-blue */
+  --chart-5: 260 50% 55%;         /* Violet */
 
   --app-font-sans: 'Inter', sans-serif;
   --app-font-serif: 'Cormorant Garamond', Georgia, serif;
@@ -130,14 +130,14 @@
   --app-font-cinematic: 'Cinzel', serif;
   --app-font-arabic: 'Tajawal', 'Cairo', sans-serif;
 
-  --shadow-2xs: 0px 1px 2px rgba(10, 5, 0, 0.4);
-  --shadow-xs: 0px 2px 4px rgba(10, 5, 0, 0.5);
-  --shadow-sm: 0px 4px 8px rgba(10, 5, 0, 0.6);
-  --shadow: 0px 8px 16px rgba(10, 5, 0, 0.7);
-  --shadow-md: 0px 12px 24px rgba(10, 5, 0, 0.8);
-  --shadow-lg: 0px 20px 40px rgba(10, 5, 0, 0.9);
-  --shadow-xl: 0px 30px 60px rgba(10, 5, 0, 1.0);
-  --shadow-2xl: 0px 40px 80px rgba(10, 5, 0, 1.0);
+  --shadow-2xs: 0px 1px 2px rgba(2, 5, 20, 0.5);
+  --shadow-xs:  0px 2px 4px rgba(2, 5, 20, 0.6);
+  --shadow-sm:  0px 4px 8px rgba(2, 5, 20, 0.7);
+  --shadow:     0px 8px 16px rgba(2, 5, 20, 0.75);
+  --shadow-md:  0px 12px 24px rgba(2, 5, 20, 0.8);
+  --shadow-lg:  0px 20px 40px rgba(2, 5, 20, 0.9);
+  --shadow-xl:  0px 30px 60px rgba(2, 5, 20, 0.95);
+  --shadow-2xl: 0px 40px 80px rgba(2, 5, 20, 1.0);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 
@@ -167,10 +167,12 @@
 
   body {
     background-color: hsl(var(--background));
-    /* Apply library background image with a light gradient overlay so the photo is clear */
-    background-image: linear-gradient(to bottom, rgba(15, 8, 5, 0.2), rgba(15, 8, 5, 0.5)), url('/library-bg.jpg');
+    /* Magical moonlit library — crystal clear with deep blue night overlay */
+    background-image:
+      linear-gradient(to bottom, rgba(3, 6, 20, 0.08) 0%, rgba(3, 6, 20, 0.55) 100%),
+      url('/مكتبة سحرية تحت ضوء القمر.png');
     background-size: cover;
-    background-position: center;
+    background-position: center top;
     background-attachment: fixed;
     color: hsl(var(--foreground));
     font-family: var(--app-font-sans);
@@ -180,8 +182,8 @@
   }
 
   ::selection {
-    background: hsl(40 85% 55% / 0.3);
-    color: hsl(40 85% 55%);
+    background: hsl(43 80% 52% / 0.35);
+    color: hsl(43 80% 52%);
   }
 
   [lang="ar"], [dir="rtl"] body {
@@ -206,47 +208,44 @@
     font-family: var(--app-font-serif);
   }
 
-  .text-maroon {
-    color: hsl(345 65% 33%); /* Brand Red */
+  /* ── Blue theme accent classes ── */
+  .text-blue-accent {
+    color: hsl(215 80% 65%);
   }
 
-  .bg-maroon {
-    background-color: hsl(345 65% 33%);
-  }
-
-  .border-maroon {
-    border-color: hsl(345 65% 33%);
+  .bg-blue-accent {
+    background-color: hsl(215 80% 65%);
   }
 
   .text-gold {
-    color: hsl(45 85% 52%);
+    color: hsl(43 80% 52%);
   }
 
   .bg-gold {
-    background-color: hsl(45 85% 52%);
+    background-color: hsl(43 80% 52%);
   }
 
   .border-gold {
-    border-color: hsl(45 85% 52%);
+    border-color: hsl(43 80% 52%);
   }
 
-  .glow-maroon {
-    box-shadow: 0 0 20px hsl(18 45% 12% / 0.1), 0 0 60px hsl(18 45% 12% / 0.05);
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.25), 0 0 60px rgba(59, 130, 246, 0.1);
   }
 
   .glow-gold {
-    box-shadow: 0 0 20px hsl(47 98% 50% / 0.3), 0 0 60px hsl(47 98% 50% / 0.1);
+    box-shadow: 0 0 20px hsl(43 80% 52% / 0.3), 0 0 60px hsl(43 80% 52% / 0.1);
   }
 
-  .text-gradient-maroon {
-    background: linear-gradient(135deg, hsl(342 63% 45%), hsl(342 63% 25%), hsl(342 63% 55%));
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #c8a84b, #f0d070, #c8a84b);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .bg-cinematic {
-    background: radial-gradient(ellipse at top, hsl(342 30% 95% / 0.8) 0%, hsl(0 0% 100%) 70%);
+    background: radial-gradient(ellipse at top, rgba(30, 50, 100, 0.6) 0%, rgba(3, 6, 20, 0.9) 70%);
   }
 
   .book-card-hover {
@@ -255,7 +254,7 @@
 
   .book-card-hover:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 24px 60px hsl(45 85% 52% / 0.2), 0 8px 24px hsl(240 15% 4% / 0.8);
+    box-shadow: 0 24px 60px rgba(200, 168, 75, 0.18), 0 8px 24px rgba(2, 5, 20, 0.8);
   }
 
   .shimmer-overlay {
@@ -277,10 +276,11 @@
   }
 
   .glass-card {
-    background: hsl(34 33% 98% / 0.7);
+    background: rgba(10, 16, 40, 0.55);
     backdrop-filter: blur(20px);
-    border: 1px solid hsl(20 20% 90% / 0.5);
-    box-shadow: 0 8px 32px 0 hsl(18 45% 12% / 0.05);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(200, 168, 75, 0.12);
+    box-shadow: 0 8px 32px 0 rgba(2, 5, 20, 0.4);
   }
 
   .cinematic-glow {
@@ -291,7 +291,7 @@
     content: '';
     position: absolute;
     inset: -10px;
-    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), hsl(45 85% 52% / 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(200, 168, 75, 0.12) 0%, rgba(59, 130, 246, 0.08) 40%, transparent 70%);
     opacity: 0;
     transition: opacity 0.5s ease;
     pointer-events: none;

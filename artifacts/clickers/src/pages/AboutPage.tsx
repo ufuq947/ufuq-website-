@@ -13,8 +13,8 @@ export function AboutPage() {
   return (
     <>
       <SEO 
-        title={isRTL ? 'من نحن | دار ممر الكتب للنشر والتوزيع' : 'About Us | Mamar Elkotob Publishing'}
-        description={isRTL ? 'تعرف على دار ممر الكتب للنشر والتوزيع، الدار الرائدة ومؤسستها حلا المنشاوي في دعم الأدب والإبداع.' : 'Learn about Mamar Elkotob Publishing House and founder Hala Al-Minshawi.'}
+        title={isRTL ? 'من نحن | دار أفق للنشر والتوزيع' : 'About Us | Ufuq Publishing'}
+        description={isRTL ? 'تعرف على دار أفق للنشر والتوزيع، الدار الرائدة ومؤسسها محمد سعيد في دعم الأدب والإبداع.' : 'Learn about Ufuq Publishing House and founder Mohamed Said.'}
       />
 
       <div className="min-h-screen pt-32 pb-32 bg-transparent text-primary overflow-hidden">
@@ -46,11 +46,11 @@ export function AboutPage() {
             >
               {isRTL ? (
                 <>
-                  دار ممر الكتب <span style={{ color: GOLD }}>للنشر والتوزيع</span>
+                  دار أفق <span style={{ color: GOLD }}>للنشر والتوزيع</span>
                 </>
               ) : (
                 <>
-                  Mamar Elkotob <span style={{ color: GOLD }}>Publishing House</span>
+                  Ufuq <span style={{ color: GOLD }}>Publishing House</span>
                 </>
               )}
             </motion.h1>
@@ -67,7 +67,7 @@ export function AboutPage() {
             </motion.p>
           </div>
 
-          {/* ─── FOUNDER SECTION (حلا المنشاوي) ───────────────────────── */}
+          {/* ─── FOUNDER SECTION (محمد سعيد) ───────────────────────── */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -84,19 +84,19 @@ export function AboutPage() {
                 <div className="lg:col-span-5 flex flex-col items-center">
                   <div className="relative group">
                     <div className="absolute -inset-1.5 bg-gradient-to-r from-accent to-yellow-600 rounded-[2.5rem] blur opacity-30 group-hover:opacity-60 transition duration-500" />
-                    <div className="relative w-64 h-80 sm:w-72 sm:h-96 rounded-[2.2rem] overflow-hidden bg-gradient-to-b from-[#2a1b0e] to-[#120904] border border-accent/40 flex flex-col items-center justify-center p-6 text-center shadow-2xl">
+                    <div className="relative w-64 h-80 sm:w-72 sm:h-96 rounded-[2.2rem] overflow-hidden bg-gradient-to-b from-[#0d1a3a] to-[#040c22] border border-accent/40 flex flex-col items-center justify-center p-6 text-center shadow-2xl">
                       <div className="w-24 h-24 rounded-full bg-accent/20 border-2 border-accent/50 flex items-center justify-center mb-6 shadow-inner text-accent">
                         <Feather size={44} />
                       </div>
                       <h3 className="text-2xl font-black text-primary font-arabic mb-1" style={{ color: GOLD_LIGHT }}>
-                        حلا المنشاوي
+                        محمد سعيد
                       </h3>
                       <p className="text-xs font-bold uppercase tracking-widest text-accent mb-4">
-                        {isRTL ? 'مؤسِسة دار ممر الكتب' : 'Founder of Mamar Elkotob'}
+                        {isRTL ? 'مؤسِس دار أفق للنشر والتوزيع' : 'Founder of Ufuq Publishing'}
                       </p>
                       <div className="h-0.5 w-16 bg-accent/40 rounded-full mb-4" />
                       <p className="text-xs text-primary/70 italic font-arabic leading-relaxed">
-                        "الكلمة أمانة، وممر الكتب هو البيت الذي يُراعي هذه الأمانة بكل حب وشغف."
+                        "الكلمة أمانة، ودار أفق هي البيت الذي يُراعي هذه الأمانة بكل حب وشغف."
                       </p>
                     </div>
                   </div>
@@ -112,24 +112,24 @@ export function AboutPage() {
                   <h2 className="text-3xl sm:text-4xl font-black mb-6 leading-snug" style={{ color: GOLD_LIGHT }}>
                     {isRTL ? (
                       <>
-                        عن المؤسسة <span style={{ color: GOLD }}>حلا المنشاوي</span>
+                        عن المؤسس <span style={{ color: GOLD }}>محمد سعيد</span>
                       </>
                     ) : (
                       <>
-                        About Founder <span style={{ color: GOLD }}>Hala Al-Minshawi</span>
+                        About Founder <span style={{ color: GOLD }}>Mohamed Said</span>
                       </>
                     )}
                   </h2>
 
                   <div className="space-y-4 text-primary/80 text-base sm:text-lg leading-relaxed">
                     <p>
-                      تأسست <strong>دار ممر الكتب للنشر والتوزيع</strong> بشغف ورؤية ثاقبة من المؤسِسة <strong>حلا المنشاوي</strong>، والتي آمنت منذ البداية بأن الكتاب ليس مجرد أوراق مطبوعة، بل هو تجربة إنسانية وفريدة تحمل روح كاتبها وتبني جسوراً من الوعي والإلهام.
+                      تأسست <strong>دار أفق للنشر والتوزيع</strong> بشغف ورؤية ثاقبة من المؤسِس <strong>محمد سعيد</strong>، والذي آمن منذ البداية بأن الكتاب ليس مجرد أوراق مطبوعة، بل هو تجربة إنسانية وفريدة تحمل روح كاتبها وتبني جسوراً من الوعي والإلهام.
                     </p>
                     <p>
-                      بقلمها وفكرها وإيمانها العميق بطاقات الشباب والكتّاب، قادت <strong>حلا المنشاوي</strong> الدار لتكون منارة أدبية تحتفي بالإبداع والتنوع، وتوفر للكتّاب بيئة داعمة ترافقهم في كافة مراحل صناعة الكتاب: من الفكرة والمراجعة والتنسيق، وحتى الإخراج الفني الراقي والطباعة والتوزيع الواسع في المعارض المحلية والدولية.
+                      بقلمه وفكره وإيمانه العميق بطاقات الشباب والكتّاب، قاد <strong>محمد سعيد</strong> الدار لتكون منارة أدبية تحتفي بالإبداع والتنوع، وتوفر للكتّاب بيئة داعمة ترافقهم في كافة مراحل صناعة الكتاب: من الفكرة والمراجعة والتنسيق، وحتى الإخراج الفني الراقي والطباعة والتوزيع الواسع في المعارض المحلية والدولية.
                     </p>
                     <p>
-                      وتحرص المؤسِسة دائماً على تقديم نموذج نشر يتسم بالشفافية والاحترافية، مع الحفاظ على الهوية الأدبية لكل إصدار، لتبقى دار ممر الكتب علامة فارقة في عالم النشر العربي.
+                      ويحرص المؤسِس دائماً على تقديم نموذج نشر يتسم بالشفافية والاحترافية، مع الحفاظ على الهوية الأدبية لكل إصدار، لتبقى دار أفق للنشر والتوزيع علامة فارقة في عالم النشر العربي.
                     </p>
                   </div>
 
@@ -158,7 +158,7 @@ export function AboutPage() {
           <div className="mb-28">
             <div className="text-center mb-16">
               <h2 className={`text-3xl sm:text-5xl font-black mb-4 ${isRTL ? 'font-arabic' : 'font-cinematic'}`} style={{ color: GOLD_LIGHT }}>
-                {isRTL ? 'ركائز دار ممر الكتب' : 'Our Core Pillars'}
+                {isRTL ? 'ركائز دار أفق للنشر والتوزيع' : 'Our Core Pillars'}
               </h2>
               <p className="text-primary/70 max-w-2xl mx-auto font-arabic text-base sm:text-lg">
                 {isRTL ? 'نلتزم بقيم وأسس تجعل تجربة النشر والقراءة تجربة فريدة ومتميزة' : 'Core values driving our publishing excellence.'}
@@ -237,7 +237,7 @@ export function AboutPage() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="p-10 sm:p-16 rounded-[3rem] bg-gradient-to-br from-[#24150a] via-[#1a0f07] to-[#0d0602] border border-accent/40 text-center relative overflow-hidden shadow-2xl"
+            className="p-10 sm:p-16 rounded-[3rem] bg-gradient-to-br from-[#0d1a40] via-[#07102a] to-[#03060e] border border-accent/40 text-center relative overflow-hidden shadow-2xl"
           >
             <div className="absolute -top-24 -left-24 w-64 h-64 bg-accent/20 blur-[80px] rounded-full pointer-events-none" />
             <div className="relative z-10 max-w-3xl mx-auto">
@@ -247,8 +247,8 @@ export function AboutPage() {
               </h2>
               <p className="text-primary/80 font-arabic text-base sm:text-xl mb-10 leading-relaxed">
                 {isRTL 
-                  ? 'انضم إلى عائلة ممر الكتب اليوم ودعنا نرافقك خطوة بخطوة لنرى عملك الأدبي يرى النور بين أيدي القراء.'
-                  : 'Join Mamar Elkotob family today and let us take your literary creation to readers everywhere.'}
+                  ? 'انضم إلى عائلة أفق للنشر والتوزيع اليوم ودعنا نرافقك خطوة بخطوة لنرى عملك الأدبي يرى النور بين أيدي القراء.'
+                  : 'Join Ufuq Publishing family today and let us take your literary creation to readers everywhere.'}
               </p>
 
               <div className={`flex flex-wrap gap-4 justify-center ${isRTL ? 'flex-row-reverse' : ''}`}>

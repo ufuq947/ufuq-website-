@@ -11,8 +11,8 @@ interface SEOProps {
   locale?: string;
 }
 
-const SITE_NAME = 'ممر الكتب | Mamar Elkotob Publishing';
-const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://mamarelkotob.com';
+const SITE_NAME = 'أفق للنشر والتوزيع | Ufuq Publishing';
+const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://ufuq-publishing.com';
 const DEFAULT_IMAGE = `${SITE_URL}/og-default.jpg`;
 
 function setMeta(property: string, content: string) {
@@ -52,8 +52,8 @@ export function SEO({
     const resolvedTitle = title ? `${title} — ${SITE_NAME}` : SITE_NAME;
     const resolvedDescription = description ||
       (language === 'ar'
-        ? 'اكتشف عالمًا من الكتب والروايات العربية والإنجليزية في دار ممر الكتب للنشر والتوزيع.'
-        : 'Discover Arabic and English books, novels, and literary worlds at Mamar Elkotob Publishing.');
+        ? 'اكتشف عالمًا من الكتب والروايات العربية والإنجليزية في دار أفق للنشر والتوزيع.'
+        : 'Discover Arabic and English books, novels, and literary worlds at Ufuq Publishing.');
 
     // ── Primary ─────────────────────────────────────────────────
     document.title = resolvedTitle;
@@ -76,7 +76,7 @@ export function SEO({
     setMeta('twitter:title', resolvedTitle);
     setMeta('twitter:description', resolvedDescription);
     setMeta('twitter:image', resolvedImage);
-    setMeta('twitter:site', '@zahmetkotab'); // Update with your Twitter handle
+    setMeta('twitter:site', '@ufuqpublishing');
 
     // ── Article-specific (blog posts) ────────────────────────
     if (type === 'article' && publishedAt) {
